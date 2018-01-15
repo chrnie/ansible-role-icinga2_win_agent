@@ -1,7 +1,5 @@
 # ansible-role-icinga2_win_agent
 
-[![Build Status](https://travis-ci.org/chrnie/ansible-role-icinga2_win_agent.svg?branch=master)](https://travis-ci.org/chrnie/ansible-role-icinga2_win_agent)
-
 Install icinga2 on Windows and registers at icingaweb2/director. You must provide a self api key.
 This key can be set in director.
 Todo: import groups with key on extended kickstart
