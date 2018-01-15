@@ -1,0 +1,19 @@
+---
+
+- name: "Debug"
+  debug:
+    msg: "PATH {{ansible_env.HOMEPATH}}\\Documents\\WindowsPowerShell\\Modules\\Icinga2Agent"
+
+- name: Ensure modulePath exists
+  win_file:
+    state: directory
+    path: "{{ansible_env.HOMEPATH}}\\Documents\\WindowsPowerShell\\Modules\\Icinga2Agent"
+
+- name: Download icinga2-powershell-module
+  win_get_url:
+    url: "{{ icinga2_powershell_module_url }}"
+    dest: "{{ansible_env.HOMEPATH}}\\Documents\\WindowsPowerShell\\Modules\\Icinga2Agent\\Icinga2Agent.psm1"
+    force: no
+
+- name: Run icinga2-powershell-module
+  win_shell: "Import-Module Icinga2Agent; Icinga2AgentModule -DirectorUrl 'http://{{icinga2_master_fqdn}}/icingaweb2/director/' -DirectorAuthToken '{{icinga2_self_api_key}}' -RunInstaller"

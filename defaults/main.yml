@@ -1,0 +1,5 @@
+---
+
+icinga2_master_fqdn: false
+icinga2_powershell_module_url: https://raw.githubusercontent.com/Icinga/icinga2-powershell-module/master/Icinga2Agent/Icinga2Agent.psm1
+icinga2_self_api_key: 4693cc050e48862c310531b48dab97bddb1f51ac
